@@ -1,0 +1,14 @@
+# To rebuild backend:
+docker compose build backend --no-cache
+
+# Or rebuild everything:
+docker compose build --no-cache
+
+# To Start Containers
+docker compose up -d
+
+# To Stop
+docker compose down
+
+# To Rebuild + Restart Backend
+docker compose up -d --build backend

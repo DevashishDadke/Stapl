@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: fitness-mongo
+    restart: always
+    ports:
+      - "27020:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_DATABASE: fitness
+    volumes:
+      - ./mongo-data:/data/db
+    networks:
+      - fitness-net
+
+  # backend:
+  #   build:
+  #     context: ./server      
+  #     dockerfile: Dockerfile
+  #   container_name: fitness-backend
+  #   restart: always
+  #   ports:
+  #     - "5000:5000"
+  #   environment:
+  #     MONGO_URI: mongodb://root:root@mongodb:27017/fitness?authSource=admin
+  #   depends_on:
+  #     - mongodb
+  #   networks:
+  #     - fitness-net
+
+networks:
+  fitness-net:
+    driver: bridge
