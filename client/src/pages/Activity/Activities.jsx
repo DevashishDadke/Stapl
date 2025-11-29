@@ -1,11 +1,19 @@
 import { useEffect, useState } from "react";
 import useActivity from "../../services/useActivity";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Activities() {
   const { getActivities, getConsistency } = useActivity();
 
   const [activities, setActivities] = useState([]);
+
+  const navigate = useNavigate(); // ⭐ Needed for logout redirect
+
+  // ⭐ Logout Function
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // Remove JWT token
+    navigate("/login", { replace: true }); // Redirect to login
+  };
 
   // Filters
   const [filters, setFilters] = useState({
@@ -13,6 +21,7 @@ export default function Activities() {
     category: "",
     metric: "",
   });
+
   const [consistency, setConsistency] = useState(null);
 
   const loadConsistency = async () => {
@@ -67,11 +76,20 @@ export default function Activities() {
             >
               Insights
             </Link>
+
             <button
               onClick={loadConsistency}
               className="px-4 py-2 bg-purple-600 text-white rounded-lg shadow hover:bg-purple-700 transition"
             >
               Consistency
+            </button>
+
+            {/* ⭐ Logout Button */}
+            <button
+              onClick={handleLogout}
+              className="px-4 py-2 bg-red-600 text-white rounded-lg shadow hover:bg-red-700 transition"
+            >
+              Logout
             </button>
           </div>
         </div>
@@ -134,6 +152,7 @@ export default function Activities() {
             <h3 className="text-xl font-bold text-gray-800 mb-3">
               Consistency Score (Last 30 Days)
             </h3>
+
             {Object.keys(consistency).length === 0 ? (
               <p className="text-gray-600">No activity in the last 30 days.</p>
             ) : (
@@ -177,7 +196,8 @@ export default function Activities() {
                 </p>
 
                 <p className="text-gray-600">
-                  <strong>Date:</strong> {new Date(a.date).toLocaleDateString()}
+                  <strong>Date:</strong>{" "}
+                  {new Date(a.date).toLocaleDateString()}
                 </p>
               </div>
             ))
