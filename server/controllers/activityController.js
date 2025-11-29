@@ -1,6 +1,4 @@
 import Activity from "../models/Activity.js";
-// TODO: support additional activity metrics in future versions
-
 
 export const logActivity = async (req, res) => {
   try {
