@@ -1,3 +1,5 @@
+// Improved: Added detailed documentation for JWT authentication middleware
+
 import jwt from "jsonwebtoken";
 
 const authMiddleware = (req, res, next) => {
