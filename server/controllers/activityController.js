@@ -4,6 +4,7 @@ export const logActivity = async (req, res) => {
   try {
     const userId = req.user; 
 
+  
     const activity = new Activity({
       userId,
       category: req.body.category,
