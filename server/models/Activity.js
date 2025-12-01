@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from "../utils/db.js";
 
 const activitySchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, required: true },

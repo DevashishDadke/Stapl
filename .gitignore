@@ -1,4 +1,6 @@
-.env
+**/.env
+client/.env
+server/.env
 mongo-data/
 node_modules/
 docker-compose-old.yaml

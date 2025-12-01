@@ -1,0 +1,23 @@
+[
+  {
+    "category": "Running",
+    "metric": "distance",
+    "value": 5,
+    "duration": 35,
+    "date": "2025-11-20T08:00:00.000Z"
+  },
+  {
+    "category": "Gym",
+    "metric": "reps",
+    "value": 30,
+    "duration": 45,
+    "date": "2025-11-21T08:00:00.000Z"
+  },
+  {
+    "category": "Cricket Nets",
+    "metric": "balls",
+    "value": 50,
+    "duration": 60,
+    "date": "2025-11-22T08:00:00.000Z"
+  }
+]

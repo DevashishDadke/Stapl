@@ -12,8 +12,6 @@ const useRequest = () => {
 
   Request.interceptors.request.use(
     async (config) => {
-      console.log("Current Token:", token);
-
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }

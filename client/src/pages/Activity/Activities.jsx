@@ -37,7 +37,10 @@ export default function Activities() {
   };
 
   useEffect(() => {
-    loadData();
+    const t = setTimeout(() => {
+      loadData();
+    }, 0);
+    return () => clearTimeout(t);
   }, []);
 
   const handleFilter = () => {

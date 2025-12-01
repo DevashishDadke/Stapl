@@ -1,0 +1,9 @@
+docker start stapl-mongo
+docker start stapl-server
+
+//no need to run ( it is for sample data )
+docker exec stapl-server node /app/scripts/seed.js
+
+docker start stapl-nginx
+cd client
+npm run dev 

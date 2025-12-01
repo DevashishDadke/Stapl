@@ -4,6 +4,7 @@ import cors from "cors";
 import userRoutes from "./routes/userRoutes.js";
 import activityRoutes from "./routes/activityRoute.js";
 import authMiddleware from "./middleware/authMiddleware.js";
+import "./utils/db.js";
 
 const app = express();
 app.use(express.json());
